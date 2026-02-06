@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="صدقة جارية - منصة الختمة">
+    <meta property="og:description" content="عن روح المرحومين مخيبر ورهف القصير">
+    <meta property="og:image" content="https://i.ibb.co/WvZGGrbs/Screenshot-20260206-224422.png">
+    <meta property="og:type" content="website">
+
     <title>صدقة جارية - منصة الختمة</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,13 +19,15 @@
         .part-btn { aspect-ratio: 1; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: 800; transition: all 0.2s; border: 2px solid #eee; }
         .part-btn.available { background: white; color: #444; }
         .part-btn.completed { background: #10b981; color: white; border-color: #059669; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+        /* تحسين عرض الصورة لضمان الوضوح وعدم القص */
+        .full-img { width: 100%; height: auto; display: block; object-fit: contain; }
     </style>
 </head>
 <body class="bg-gray-50 pb-10">
 
     <div class="max-w-md mx-auto mt-4 px-4">
         <div class="app-card overflow-hidden">
-            <img src="https://i.ibb.co/WvZGGrbs/Screenshot-20260206-224422.png" class="w-full h-auto object-cover">
+            <img src="https://i.ibb.co/WvZGGrbs/Screenshot-20260206-224422.png" class="full-img" alt="صدقة جارية">
             <div class="p-4 text-center">
                 <h1 class="text-xl font-extrabold text-gray-800 italic">صدقة جارية عن أرواح المرحومين</h1>
                 <p class="text-emerald-600 font-semibold mt-1">مخيبر ورهف القصير</p>
@@ -32,8 +40,7 @@
             <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
                 <span class="text-emerald-500 text-2xl">📖</span> ختمة الجماعة
             </h2>
-            <div id="grid" class="grid grid-cols-5 gap-3">
-                </div>
+            <div id="grid" class="grid grid-cols-5 gap-3"></div>
         </div>
     </div>
 
@@ -42,11 +49,9 @@
             <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
                 <span class="text-emerald-500 text-2xl">🤍</span> حائط الدعاء
             </h2>
-            <textarea id="msg" placeholder="اكتب دعاءً صادقاً..." class="w-full bg-gray-50 border-0 rounded-xl p-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none" rows="3"></textarea>
+            <textarea id="msg" placeholder="اكتب دعاءً صادقاً..." class="w-full bg-gray-50 border-0 rounded-xl p-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none text-right" rows="3"></textarea>
             <button onclick="addMsg()" class="w-full mt-3 bg-emerald-600 text-white font-bold py-3 rounded-xl shadow-lg shadow-emerald-200">إرسال</button>
-            
-            <div id="wall" class="mt-6 space-y-4">
-                </div>
+            <div id="wall" class="mt-6 space-y-4"></div>
         </div>
     </div>
 
@@ -66,7 +71,8 @@
 
             const { data: msgs } = await client.from('prayers').select('*').order('created_at', { ascending: false });
             document.getElementById('wall').innerHTML = (msgs || []).map(m => `
-                <div class="bg-emerald-50/50 p-4 rounded-2xl border-r-4 border-emerald-500 text-right">
+                <div class="bg-emerald-50/50 p-4 rounded-2xl border-r-4 border-emerald-500 text-right shadow-sm">
+                    <p class="text-gray-700 text-sm leading-relaxed font-bold">فاعل خير:</p>
                     <p class="text-gray-700 text-sm leading-relaxed">${m.prayer_content}</p>
                     <span class="text-[10px] text-gray-400 mt-2 block">${new Date(m.created_at).toLocaleDateString('ar-EG')}</span>
                 </div>
@@ -88,7 +94,6 @@
             document.getElementById('msg').value = '';
             load();
         }
-
         load();
     </script>
 </body>
