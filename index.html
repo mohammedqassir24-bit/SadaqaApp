@@ -6,7 +6,9 @@
     
     <meta property="og:title" content="صدقة جارية - منصة الختمة">
     <meta property="og:description" content="عن روح المرحومين مخيبر ورهف القصير">
-    <meta property="og:image" content="https://i.ibb.co/WvZGGrbs/Screenshot-20260206-224422.png">
+    <meta property="og:image" content="https://i.postimg.cc/kDhRSyLp/Gemini-Generated-Image-7w55s27w55s27w55.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
 
     <title>صدقة جارية - منصة الختمة</title>
@@ -14,44 +16,46 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap');
-        body { font-family: 'Cairo', sans-serif; background: #fdfdfd; }
-        .app-card { border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); background: white; border: 1px solid #f0f0f0; }
-        .part-btn { aspect-ratio: 1; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: 800; transition: all 0.2s; border: 2px solid #eee; }
-        .part-btn.available { background: white; color: #444; }
-        .part-btn.completed { background: #10b981; color: white; border-color: #059669; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
-        /* تحسين عرض الصورة لضمان الوضوح وعدم القص */
-        .full-img { width: 100%; height: auto; display: block; object-fit: contain; }
+        body { font-family: 'Cairo', sans-serif; background: #f8fafc; }
+        .app-card { border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); background: white; overflow: hidden; }
+        .part-btn { aspect-ratio: 1; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; transition: 0.2s; border: 1px solid #e2e8f0; font-size: 1.1rem; }
+        .available { background: #fff; color: #334155; }
+        .completed { background: #10b981; color: white; border-color: #059669; box-shadow: 0 4px 12px rgba(16,185,129,0.2); }
+        .whatsapp-btn { background: #25D366; color: white; transition: 0.3s; }
+        .whatsapp-btn:hover { background: #128C7E; transform: scale(1.02); }
     </style>
 </head>
-<body class="bg-gray-50 pb-10">
+<body class="pb-10">
 
     <div class="max-w-md mx-auto mt-4 px-4">
-        <div class="app-card overflow-hidden">
-            <img src="https://i.ibb.co/WvZGGrbs/Screenshot-20260206-224422.png" class="full-img" alt="صدقة جارية">
-            <div class="p-4 text-center">
-                <h1 class="text-xl font-extrabold text-gray-800 italic">صدقة جارية عن أرواح المرحومين</h1>
-                <p class="text-emerald-600 font-semibold mt-1">مخيبر ورهف القصير</p>
+        <div class="app-card">
+            <img src="https://i.postimg.cc/kDhRSyLp/Gemini-Generated-Image-7w55s27w55s27w55.png" class="w-full h-auto block" alt="صدقة جارية">
+            
+            <div class="p-6 text-center">
+                <h1 class="text-2xl font-800 text-gray-800">صدقة جارية</h1>
+                <p class="text-emerald-600 font-bold text-lg">عن روح المرحومين: مخيبر ورهف القصير</p>
+                
+                <button onclick="shareOnWhatsApp()" class="whatsapp-btn flex items-center justify-center gap-2 w-full mt-5 py-4 rounded-2xl font-bold shadow-lg">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <span>انشر الختمة عبر الواتساب</span>
+                </button>
             </div>
         </div>
     </div>
 
     <div class="max-w-md mx-auto mt-6 px-4">
-        <div class="app-card p-5">
-            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
-                <span class="text-emerald-500 text-2xl">📖</span> ختمة الجماعة
-            </h2>
-            <div id="grid" class="grid grid-cols-5 gap-3"></div>
+        <div class="app-card p-6">
+            <h2 class="text-xl font-bold mb-5 flex items-center gap-2 text-slate-800">📖 الأجزاء المتبقية</h2>
+            <div id="grid" class="grid grid-cols-5 gap-3 text-center"></div>
         </div>
     </div>
 
     <div class="max-w-md mx-auto mt-6 px-4">
-        <div class="app-card p-5">
-            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
-                <span class="text-emerald-500 text-2xl">🤍</span> حائط الدعاء
-            </h2>
-            <textarea id="msg" placeholder="اكتب دعاءً صادقاً..." class="w-full bg-gray-50 border-0 rounded-xl p-4 text-sm focus:ring-2 focus:ring-emerald-500 outline-none text-right" rows="3"></textarea>
-            <button onclick="addMsg()" class="w-full mt-3 bg-emerald-600 text-white font-bold py-3 rounded-xl shadow-lg shadow-emerald-200">إرسال</button>
-            <div id="wall" class="mt-6 space-y-4"></div>
+        <div class="app-card p-6">
+            <h2 class="text-xl font-bold mb-5 text-slate-800">🤍 حائط الأدعية</h2>
+            <textarea id="msg" placeholder="اكتب دعاءً للمتوفين..." class="w-full bg-slate-50 border-none rounded-2xl p-4 outline-none focus:ring-2 focus:ring-emerald-500 text-right text-sm mb-3" rows="3"></textarea>
+            <button onclick="addNewPrayer()" class="w-full bg-emerald-600 text-white font-bold py-4 rounded-2xl shadow-lg transition hover:bg-emerald-700">إرسال الدعاء</button>
+            <div id="wall" class="mt-8 space-y-4"></div>
         </div>
     </div>
 
@@ -62,38 +66,42 @@
 
         async function load() {
             const { data: parts } = await client.from('khatmas').select('*').order('id');
-            const grid = document.getElementById('grid');
-            grid.innerHTML = (parts || []).map(p => `
-                <button onclick="mark(${p.id}, '${p.status}')" class="part-btn ${p.status === 'completed' ? 'completed' : 'available'}">
-                    ${p.part_number}
+            document.getElementById('grid').innerHTML = (parts || []).map(p => `
+                <button onclick="markAsRead(${p.id}, '${p.status}', ${p.part_number})" class="part-btn ${p.status === 'completed' ? 'completed' : 'available'}">
+                    <span class="text-[9px] opacity-50 mb-1">جزء</span>${p.part_number}
                 </button>
             `).join('');
 
             const { data: msgs } = await client.from('prayers').select('*').order('created_at', { ascending: false });
             document.getElementById('wall').innerHTML = (msgs || []).map(m => `
-                <div class="bg-emerald-50/50 p-4 rounded-2xl border-r-4 border-emerald-500 text-right shadow-sm">
-                    <p class="text-gray-700 text-sm leading-relaxed font-bold">فاعل خير:</p>
-                    <p class="text-gray-700 text-sm leading-relaxed">${m.prayer_content}</p>
-                    <span class="text-[10px] text-gray-400 mt-2 block">${new Date(m.created_at).toLocaleDateString('ar-EG')}</span>
+                <div class="bg-slate-50 p-4 rounded-2xl border-r-4 border-emerald-500 text-right shadow-sm">
+                    <p class="text-slate-700 leading-relaxed">${m.prayer_content}</p>
                 </div>
             `).join('');
         }
 
-        async function mark(id, status) {
+        function shareOnWhatsApp() {
+            const url = window.location.href;
+            const message = `شارك معنا في ختمة القرآن الكريم صدقة جارية عن أرواح المرحومين مخيبر ورهف القصير. رابط الختمة: ${url}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        async function markAsRead(id, status, num) {
             if(status === 'completed') return;
-            if(confirm('هل أتممت قراءة هذا الجزء؟')) {
+            if(confirm(`هل أتممت قراءة الجزء رقم ${num}؟`)) {
                 await client.from('khatmas').update({ status: 'completed' }).eq('id', id);
                 load();
             }
         }
 
-        async function addMsg() {
+        async function addNewPrayer() {
             const txt = document.getElementById('msg').value;
             if(!txt) return;
             await client.from('prayers').insert([{ prayer_content: txt }]);
             document.getElementById('msg').value = '';
             load();
         }
+
         load();
     </script>
 </body>
