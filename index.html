@@ -19,7 +19,7 @@
 
     <div class="max-w-md mx-auto mt-4 px-4">
         <div class="app-card overflow-hidden">
-             <img src="https://ibb.co/WvZGGrbs" class="w-full h-auto object-cover">
+            <img src="https://i.ibb.co/WvZGGrbs/Screenshot-20260206-224422.png" class="w-full h-auto object-cover">
             <div class="p-4 text-center">
                 <h1 class="text-xl font-extrabold text-gray-800 italic">صدقة جارية عن أرواح المرحومين</h1>
                 <p class="text-emerald-600 font-semibold mt-1">مخيبر ورهف القصير</p>
@@ -58,15 +58,15 @@
         async function load() {
             const { data: parts } = await client.from('khatmas').select('*').order('id');
             const grid = document.getElementById('grid');
-            grid.innerHTML = parts.map(p => `
+            grid.innerHTML = (parts || []).map(p => `
                 <button onclick="mark(${p.id}, '${p.status}')" class="part-btn ${p.status === 'completed' ? 'completed' : 'available'}">
                     ${p.part_number}
                 </button>
             `).join('');
 
             const { data: msgs } = await client.from('prayers').select('*').order('created_at', { ascending: false });
-            document.getElementById('wall').innerHTML = msgs.map(m => `
-                <div class="bg-emerald-50/50 p-4 rounded-2xl border-r-4 border-emerald-500">
+            document.getElementById('wall').innerHTML = (msgs || []).map(m => `
+                <div class="bg-emerald-50/50 p-4 rounded-2xl border-r-4 border-emerald-500 text-right">
                     <p class="text-gray-700 text-sm leading-relaxed">${m.prayer_content}</p>
                     <span class="text-[10px] text-gray-400 mt-2 block">${new Date(m.created_at).toLocaleDateString('ar-EG')}</span>
                 </div>
