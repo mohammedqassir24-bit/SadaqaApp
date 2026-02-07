@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta property="og:title" content="منصة الختمة - صدقة جارية">
     <meta property="og:description" content="عن أرواح المرحومين مخيبر ورهف القصير">
     <meta property="og:image" content="https://i.postimg.cc/VsWGrbZg/Gemini-Generated-Image-naovshnaovshnaov.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
 
     <title>صدقة جارية - منصة الختمة</title>
@@ -16,12 +19,10 @@
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
         body { font-family: 'Cairo', sans-serif; background: #f4f7f6; color: #1e293b; }
         .app-card { border-radius: 24px; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #e2e8f0; }
-        .quran-frame { border: 3px double #10b981; padding: 20px; border-radius: 20px; background: #f9fdfb; position: relative; }
+        .quran-frame { border: 3px double #10b981; padding: 20px; border-radius: 20px; background: #f9fdfb; }
         .part-btn { aspect-ratio: 1; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; transition: 0.2s; border: 1px solid #eef2f1; }
         .available { background: #fff; color: #374151; }
         .completed { background: #059669; color: white; border-color: #047857; box-shadow: 0 4px 12px rgba(5,150,105,0.2); }
-        .dhikr-btn { background: white; border-bottom: 4px solid #e2e8f0; transition: 0.2s; }
-        .dhikr-btn:active { transform: translateY(2px); border-bottom-width: 0; }
     </style>
 </head>
 <body class="pb-10 px-4">
@@ -31,7 +32,7 @@
             <img src="https://i.postimg.cc/VsWGrbZg/Gemini-Generated-Image-naovshnaovshnaov.png" class="w-full h-auto" alt="صدقة جارية">
             <div class="p-5 text-center">
                 <h1 class="text-2xl font-900 text-emerald-800">صدقة جارية</h1>
-                <p class="text-slate-600 font-bold">عن روح المرحومين: مخيبر ورهف القصير</p>
+                <p class="text-slate-600 font-bold italic">عن روح المرحومين: مخيبر ورهف القصير</p>
             </div>
         </div>
 
@@ -39,39 +40,18 @@
             <div class="quran-frame">
                 <h2 class="text-emerald-700 font-900 mb-3 underline">سورة الفاتحة</h2>
                 <p class="text-lg leading-loose font-bold text-slate-700 mb-4">
-                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ (1) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (2) الرَّحْمَنِ الرَّحِيمِ (3) مَالِكِ يَوْمِ الدِّينِ (4) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (5) اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (6) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (7)
+                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ (1) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (2) الرَّحْمَنِ الرَّحِيمِ (3) مَالِكِ يَوْمِ الدِّينِ (4) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (5) اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (6) صِرَاطَ الَّذِينَ أَنْعَمْتَ والعَهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (7)
                 </p>
-                <div class="bg-emerald-50 p-4 rounded-xl border-r-4 border-emerald-500 text-sm italic font-semibold">
-                    "اللهم اغفر لهم وارحمهم، وعافهم واعفُ عنهم، وأكرم نزلهم، ووسع مدخلهم، واجعل قبورهم روضة من رياض الجنة"
-                </div>
             </div>
         </div>
 
         <div class="app-card p-6 mb-6">
-            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">📿 عداد التسبيح والاستغفار</h2>
-            <div class="grid grid-cols-2 gap-3">
-                <button onclick="countDhikr('tasbih')" class="dhikr-btn p-4 rounded-2xl border border-slate-100">
-                    <span class="block text-emerald-600 font-bold">سبحان الله</span>
-                    <span id="tasbih-val" class="text-xs text-slate-400">0</span>
-                </button>
-                <button onclick="countDhikr('ist')" class="dhikr-btn p-4 rounded-2xl border border-slate-100">
-                    <span class="block text-emerald-600 font-bold">أستغفر الله</span>
-                    <span id="ist-val" class="text-xs text-slate-400">0</span>
-                </button>
-                <button onclick="countDhikr('nabi')" class="dhikr-btn p-4 rounded-2xl border border-slate-100 col-span-2">
-                    <span class="block text-emerald-600 font-bold">اللهم صلِّ على محمد</span>
-                    <span id="nabi-val" class="text-xs text-slate-400">0</span>
-                </button>
-            </div>
+            <h2 class="text-lg font-bold mb-4 text-right">📖 الختمة الجماعية</h2>
+            <div id="grid" class="grid grid-cols-5 gap-3 text-center"></div>
         </div>
 
-        <div class="app-card p-6 mb-6">
-            <h2 class="text-lg font-bold mb-4 text-right">📖 الختمة الجماعية (اختر جزءاً لقرائته)</h2>
-            <div id="grid" class="grid grid-cols-5 gap-3"></div>
-        </div>
-
-        <button onclick="share()" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 mb-8">
-            <span>انشر الرابط ولكم الأجر</span>
+        <button onclick="shareOnWhatsApp()" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 mb-8">
+            <span>انشر الختمة ولكم الأجر</span>
         </button>
 
         <div class="text-center p-6 border-t border-slate-200 mt-10">
@@ -94,7 +74,6 @@
                     <span class="text-[9px] opacity-50 mb-1">جزء</span>${p.part_number}
                 </button>
             `).join('');
-            updateDhikrUI();
         }
 
         async function markAsDone(id, status, num) {
@@ -102,33 +81,23 @@
             if(confirm(`هل أتممت قراءة الجزء رقم ${num}؟`)) {
                 await client.from('khatmas').update({ status: 'completed' }).eq('id', id);
                 confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
-
-                // فحص التصفير التلقائي
+                
                 const { data: all } = await client.from('khatmas').select('status');
                 if (all.every(p => p.status === 'completed')) {
-                    alert('هنيئاً لكم! تمت الختمة كاملة. سيتم الآن تصفير الأجزاء لختمة جديدة.');
+                    alert('هنيئاً لكم! تمت الختمة. سيتم تصفير الأجزاء لختمة جديدة.');
                     await client.from('khatmas').update({ status: 'available' }).neq('status', 'available');
                 }
                 load();
             }
         }
 
-        function countDhikr(type) {
-            let c = localStorage.getItem(type) || 0;
-            localStorage.setItem(type, ++c);
-            updateDhikrUI();
-            if (window.navigator.vibrate) window.navigator.vibrate(50);
-        }
-
-        function updateDhikrUI() {
-            document.getElementById('tasbih-val').innerText = (localStorage.getItem('tasbih') || 0) + " مرة";
-            document.getElementById('ist-val').innerText = (localStorage.getItem('ist') || 0) + " مرة";
-            document.getElementById('nabi-val').innerText = (localStorage.getItem('nabi') || 0) + " مرة";
-        }
-
-        function share() {
-            const text = `شاركنا الأجر في ختمة القرآن الكريم والأذكار صدقة جارية عن أرواح المرحومين مخيبر ورهف القصير. رابط المنصة: ${window.location.href}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+        // دالة المشاركة الاحترافية التي تجبر واتساب على سحب الصورة
+        function shareOnWhatsApp() {
+            const baseUrl = window.location.origin + window.location.pathname;
+            // إضافة رمز عشوائي للرابط عند كل مشاركة لإجبار واتساب على التحديث
+            const freshUrl = `${baseUrl}?upd=${Math.floor(Math.random() * 9999)}`;
+            const message = `شاركونا الأجر في ختمة القرآن الكريم صدقة جارية عن أرواح المرحومين مخيبر ورهف القصير. رابط الختمة:\n${freshUrl}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         load();
