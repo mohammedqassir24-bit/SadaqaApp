@@ -12,6 +12,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
+    <meta property="twitter:card" content="summary_large_image">
 
     <title>صدقة جارية - الختمة والأذكار</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -37,7 +38,7 @@
             <img src="https://i.postimg.cc/VsWGrbZg/Gemini-Generated-Image-naovshnaovshnaov.png" class="w-full h-auto" alt="صدقة جارية">
             <div class="p-4">
                 <h1 class="text-xl font-900 text-emerald-800">صدقة جارية</h1>
-                <p class="text-slate-600 font-bold text-sm text-center">عن روح المرحومين: مخيبر ورهف القصير</p>
+                <p class="text-slate-600 font-bold text-sm">عن روح المرحومين: مخيبر ورهف القصير</p>
             </div>
         </div>
 
@@ -69,24 +70,18 @@
         </div>
 
         <div class="app-card p-5">
-            <h2 class="text-base font-bold mb-3 text-right text-slate-800">📖 الختمة (اضغط الجزء لختمه)</h2>
+            <h2 class="text-base font-bold mb-3 text-right text-slate-800">📖 الختمة الجماعية</h2>
             <div id="grid" class="grid grid-cols-5 gap-2 text-center"></div>
         </div>
 
-        <div class="app-card p-5">
-            <textarea id="msg" placeholder="اكتب دعاءً للمتوفين..." class="w-full bg-slate-50 border-none rounded-xl p-3 text-right text-sm mb-2" rows="2"></textarea>
-            <button onclick="addMsg()" class="w-full bg-emerald-600 text-white font-bold py-3 rounded-xl text-sm">إرسال الدعاء</button>
-            <div id="wall" class="mt-4 space-y-3"></div>
-        </div>
-
-        <button onclick="shareNow()" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 mb-8">
-            <span>انشر الختمة (تظهر الصورة فوراً)</span>
+        <button onclick="forceShare()" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 mb-8">
+            <span>انشر الختمة عبر واتساب</span>
         </button>
 
         <div class="text-center p-4 border-t border-slate-200 mt-6">
-            <p class="text-slate-500 text-xs font-bold">
+            <p class="text-slate-500 text-xs font-bold leading-relaxed">
                 قدمها العبد الفقير إلى الله <br>
-                <span class="text-emerald-700 text-base">"محمد عبد الكريم القصير"</span>
+                <span class="text-emerald-700 text-base italic">"محمد عبد الكريم القصير"</span>
             </p>
         </div>
     </div>
@@ -103,12 +98,6 @@
                     <span class="text-[9px] opacity-50 mb-1">جزء</span>${p.part_number}
                 </button>
             `).join('');
-
-            const { data: msgs } = await client.from('prayers').select('*').order('created_at', { ascending: false }).limit(5);
-            document.getElementById('wall').innerHTML = (msgs || []).map(m => `
-                <div class="bg-slate-50 p-3 rounded-xl text-right border-r-4 border-emerald-500 text-xs shadow-sm">${m.prayer_content}</div>
-            `).join('');
-            
             updateUI();
         }
 
@@ -127,14 +116,6 @@
             }
         }
 
-        async function addMsg() {
-            const txt = document.getElementById('msg').value;
-            if(!txt) return;
-            await client.from('prayers').insert([{ prayer_content: txt }]);
-            document.getElementById('msg').value = '';
-            load();
-        }
-
         function countDhikr(type) {
             let c = localStorage.getItem(type) || 0;
             localStorage.setItem(type, ++c);
@@ -147,17 +128,17 @@
             document.getElementById('nabi-val').innerText = (localStorage.getItem('nabi') || 0) + " مرة";
         }
 
-        // السر الحقيقي لجبر واتساب على إظهار الصورة
-        function shareNow() {
-            const baseUrl = window.location.origin + window.location.pathname;
-            // إضافة Timestamp فريد في كل مرة يضغط فيها المستخدم الزر
-            const uniqueId = new Date().getTime(); 
-            const finalUrl = `${baseUrl}?sadaqa=${uniqueId}`;
+        // دالة المشاركة - النسخة الأقوى
+        function forceShare() {
+            const siteUrl = window.location.origin + window.location.pathname;
+            // حيلة الرابط المتغير لإجبار المعاينة
+            const rand = Math.floor(Math.random() * 10000);
+            const finalUrl = siteUrl + "?v=" + rand;
             
-            const message = `شاركونا الأجر في ختمة القرآن الكريم والأذكار صدقة جارية عن أرواح المرحومين مخيبر ورهف القصير.\n\nرابط المنصة:\n${finalUrl}`;
+            const msg = `شاركونا الأجر في ختمة القرآن والأذكار صدقة جارية عن أرواح المرحومين مخيبر ورهف القصير.\n\nالرابط:\n${finalUrl}`;
             
-            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            // استخدام رابط الويب الرسمي للواتساب لضمان المعاينة
+            window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
         load();
