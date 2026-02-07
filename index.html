@@ -7,6 +7,8 @@
     <meta property="og:title" content="منصة الختمة - صدقة جارية">
     <meta property="og:description" content="عن أرواح المرحومين مخيبر ورهف القصير">
     <meta property="og:image" content="https://i.postimg.cc/VsWGrbZg/Gemini-Generated-Image-naovshnaovshnaov.png">
+    <meta property="og:image:secure_url" content="https://i.postimg.cc/VsWGrbZg/Gemini-Generated-Image-naovshnaovshnaov.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
@@ -20,9 +22,9 @@
         body { font-family: 'Cairo', sans-serif; background: #f0f4f3; color: #1e293b; }
         .app-card { border-radius: 20px; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.03); overflow: hidden; border: 1px solid #e2e8f0; margin-bottom: 20px; }
         .quran-frame { border: 3px double #10b981; padding: 15px; border-radius: 15px; background: #f9fdfb; }
-        .part-btn { aspect-ratio: 1; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; transition: 0.2s; border: 1px solid #eef2f1; font-size: 1.1rem; }
+        .part-btn { aspect-ratio: 1; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; transition: 0.2s; border: 1px solid #eef2f1; }
         .available { background: #fff; color: #374151; }
-        .completed { background: #059669; color: white; border-color: #047857; box-shadow: 0 4px 12px rgba(5,150,105,0.2); }
+        .completed { background: #059669; color: white; border-color: #047857; }
         .dhikr-btn { background: white; border-bottom: 3px solid #e2e8f0; transition: 0.1s; cursor: pointer; }
         .dhikr-btn:active { transform: translateY(2px); border-bottom-width: 0; }
     </style>
@@ -35,25 +37,22 @@
             <img src="https://i.postimg.cc/VsWGrbZg/Gemini-Generated-Image-naovshnaovshnaov.png" class="w-full h-auto" alt="صدقة جارية">
             <div class="p-4">
                 <h1 class="text-xl font-900 text-emerald-800">صدقة جارية</h1>
-                <p class="text-slate-600 font-bold text-sm">عن روح المرحومين: مخيبر ورهف القصير</p>
+                <p class="text-slate-600 font-bold text-sm text-center">عن روح المرحومين: مخيبر ورهف القصير</p>
             </div>
         </div>
 
         <div class="app-card p-4 text-center">
-            <div class="quran-frame">
+            <div class="quran-frame text-center">
                 <h2 class="text-emerald-700 font-900 mb-2 underline text-lg">سورة الفاتحة</h2>
                 <p class="text-base leading-loose font-bold text-slate-700 mb-3">
                     بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ (1) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (2) الرَّحْمَنِ الرَّحِيمِ (3) مَالِكِ يَوْمِ الدِّينِ (4) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (5) اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (6) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (7)
                 </p>
-                <div class="bg-emerald-50 p-3 rounded-lg border-r-4 border-emerald-500 text-xs italic font-bold text-emerald-900">
-                    "اللهم اغفر لهم وارحمهم، وعافهم واعفُ عنهم، وأكرم نزلهم، ووسع مدخلهم، واجعل قبورهم روضة من رياض الجنة"
-                </div>
             </div>
         </div>
 
         <div class="app-card p-5">
             <h2 class="text-base font-bold mb-3 flex items-center gap-2 text-slate-800">📿 عداد الأذكار</h2>
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-2 gap-2 text-center">
                 <button onclick="countDhikr('tasbih')" class="dhikr-btn p-3 rounded-xl border border-slate-100">
                     <span class="block text-emerald-600 font-bold text-sm">سبحان الله</span>
                     <span id="tasbih-val" class="text-xs text-slate-400">0</span>
@@ -75,15 +74,13 @@
         </div>
 
         <div class="app-card p-5">
-            <h2 class="text-base font-bold mb-3 text-slate-800">🤍 اكتب دعاءً للمتوفين</h2>
-            <textarea id="msg" placeholder="اكتب دعاءك هنا..." class="w-full bg-slate-50 border-none rounded-xl p-3 outline-none focus:ring-2 focus:ring-emerald-500 text-right text-sm mb-2" rows="2"></textarea>
-            <button onclick="addMsg()" class="w-full bg-emerald-600 text-white font-bold py-3 rounded-xl shadow-md text-sm">إرسال الدعاء</button>
+            <textarea id="msg" placeholder="اكتب دعاءً للمتوفين..." class="w-full bg-slate-50 border-none rounded-xl p-3 text-right text-sm mb-2" rows="2"></textarea>
+            <button onclick="addMsg()" class="w-full bg-emerald-600 text-white font-bold py-3 rounded-xl text-sm">إرسال الدعاء</button>
             <div id="wall" class="mt-4 space-y-3"></div>
         </div>
 
-        <button onclick="shareOnWhatsApp()" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 mb-8">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span>انشر الختمة (واتساب)</span>
+        <button onclick="shareNow()" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 mb-8">
+            <span>انشر الختمة (تظهر الصورة فوراً)</span>
         </button>
 
         <div class="text-center p-4 border-t border-slate-200 mt-6">
@@ -100,7 +97,6 @@
         const client = supabase.createClient(S_URL, S_KEY);
 
         async function load() {
-            // تحميل الختمة
             const { data: parts } = await client.from('khatmas').select('*').order('id');
             document.getElementById('grid').innerHTML = (parts || []).map(p => `
                 <button onclick="markAsDone(${p.id}, '${p.status}', ${p.part_number})" class="part-btn ${p.status === 'completed' ? 'completed' : 'available'}">
@@ -108,10 +104,9 @@
                 </button>
             `).join('');
 
-            // تحميل الأدعية
-            const { data: msgs } = await client.from('prayers').select('*').order('created_at', { ascending: false }).limit(7);
+            const { data: msgs } = await client.from('prayers').select('*').order('created_at', { ascending: false }).limit(5);
             document.getElementById('wall').innerHTML = (msgs || []).map(m => `
-                <div class="bg-slate-50 p-3 rounded-xl text-right border-r-4 border-emerald-500 text-sm text-slate-700 shadow-sm">${m.prayer_content}</div>
+                <div class="bg-slate-50 p-3 rounded-xl text-right border-r-4 border-emerald-500 text-xs shadow-sm">${m.prayer_content}</div>
             `).join('');
             
             updateUI();
@@ -123,10 +118,9 @@
                 await client.from('khatmas').update({ status: 'completed' }).eq('id', id);
                 confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
                 
-                // فحص التصفير
                 const { data: all } = await client.from('khatmas').select('status');
                 if (all.every(p => p.status === 'completed')) {
-                    alert('الحمد لله! تمت الختمة كاملة. سيتم التصفير الآن.');
+                    alert('الحمد لله! تمت الختمة. سيتم التصفير الآن.');
                     await client.from('khatmas').update({ status: 'available' }).neq('status', 'available');
                 }
                 load();
@@ -145,7 +139,6 @@
             let c = localStorage.getItem(type) || 0;
             localStorage.setItem(type, ++c);
             updateUI();
-            if (window.navigator.vibrate) window.navigator.vibrate(50);
         }
 
         function updateUI() {
@@ -154,11 +147,17 @@
             document.getElementById('nabi-val').innerText = (localStorage.getItem('nabi') || 0) + " مرة";
         }
 
-        function shareOnWhatsApp() {
+        // السر الحقيقي لجبر واتساب على إظهار الصورة
+        function shareNow() {
             const baseUrl = window.location.origin + window.location.pathname;
-            const freshUrl = `${baseUrl}?upd=${Math.floor(Math.random() * 999999)}`;
-            const message = `شاركونا الأجر في ختمة القرآن الكريم والأذكار صدقة جارية عن أرواح المرحومين مخيبر ورهف القصير. رابط الختمة:\n${freshUrl}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+            // إضافة Timestamp فريد في كل مرة يضغط فيها المستخدم الزر
+            const uniqueId = new Date().getTime(); 
+            const finalUrl = `${baseUrl}?sadaqa=${uniqueId}`;
+            
+            const message = `شاركونا الأجر في ختمة القرآن الكريم والأذكار صدقة جارية عن أرواح المرحومين مخيبر ورهف القصير.\n\nرابط المنصة:\n${finalUrl}`;
+            
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
         load();
