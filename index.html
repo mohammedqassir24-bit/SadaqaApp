@@ -11,7 +11,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
 
-    <title>صدقة جارية - منصة الختمة</title>
+    <title>صدقة جارية - منصة الختمة والأذكار</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
@@ -23,14 +23,16 @@
         .part-btn { aspect-ratio: 1; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; transition: 0.2s; border: 1px solid #eef2f1; }
         .available { background: #fff; color: #374151; }
         .completed { background: #059669; color: white; border-color: #047857; box-shadow: 0 4px 12px rgba(5,150,105,0.2); }
+        .dhikr-btn { background: white; border-bottom: 4px solid #e2e8f0; transition: 0.1s; cursor: pointer; }
+        .dhikr-btn:active { transform: translateY(2px); border-bottom-width: 0; }
     </style>
 </head>
 <body class="pb-10 px-4">
 
     <div class="max-w-md mx-auto mt-6">
-        <div class="app-card mb-6">
+        <div class="app-card mb-6 text-center">
             <img src="https://i.postimg.cc/VsWGrbZg/Gemini-Generated-Image-naovshnaovshnaov.png" class="w-full h-auto" alt="صدقة جارية">
-            <div class="p-5 text-center">
+            <div class="p-5">
                 <h1 class="text-2xl font-900 text-emerald-800">صدقة جارية</h1>
                 <p class="text-slate-600 font-bold italic">عن روح المرحومين: مخيبر ورهف القصير</p>
             </div>
@@ -39,68 +41,33 @@
         <div class="app-card p-6 mb-6 text-center">
             <div class="quran-frame">
                 <h2 class="text-emerald-700 font-900 mb-3 underline">سورة الفاتحة</h2>
-                <p class="text-lg leading-loose font-bold text-slate-700 mb-4">
-                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ (1) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (2) الرَّحْمَنِ الرَّحِيمِ (3) مَالِكِ يَوْمِ الدِّينِ (4) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (5) اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (6) صِرَاطَ الَّذِينَ أَنْعَمْتَ والعَهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (7)
+                <p class="text-lg leading-loose font-bold text-slate-700">
+                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ (1) الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ (2) الرَّحْمَنِ الرَّحِيمِ (3) مَالِكِ يَوْمِ الدِّينِ (4) إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ (5) اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ (6) صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ (7)
                 </p>
             </div>
         </div>
 
         <div class="app-card p-6 mb-6">
-            <h2 class="text-lg font-bold mb-4 text-right">📖 الختمة الجماعية</h2>
+            <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">📿 عداد الأذكار والتسبيح</h2>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="countDhikr('tasbih')" class="dhikr-btn p-4 rounded-2xl border border-slate-100">
+                    <span class="block text-emerald-600 font-bold">سبحان الله</span>
+                    <span id="tasbih-val" class="text-xs text-slate-400">0 مرة</span>
+                </button>
+                <button onclick="countDhikr('ist')" class="dhikr-btn p-4 rounded-2xl border border-slate-100">
+                    <span class="block text-emerald-600 font-bold">أستغفر الله</span>
+                    <span id="ist-val" class="text-xs text-slate-400">0 مرة</span>
+                </button>
+                <button onclick="countDhikr('nabi')" class="dhikr-btn p-4 rounded-2xl border border-slate-100 col-span-2">
+                    <span class="block text-emerald-600 font-bold">اللهم صلِّ على محمد</span>
+                    <span id="nabi-val" class="text-xs text-slate-400">0 مرة</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="app-card p-6 mb-6">
+            <h2 class="text-lg font-bold mb-4 text-right text-slate-800">📖 الختمة الجماعية</h2>
             <div id="grid" class="grid grid-cols-5 gap-3 text-center"></div>
         </div>
 
-        <button onclick="shareOnWhatsApp()" class="w-full bg-[#25D366] text-white font-bold py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 mb-8">
-            <span>انشر الختمة ولكم الأجر</span>
-        </button>
-
-        <div class="text-center p-6 border-t border-slate-200 mt-10">
-            <p class="text-slate-500 text-sm font-bold">
-                قدمها العبد الفقير إلى الله <br>
-                <span class="text-emerald-700 text-lg">"محمد عبد الكريم القصير"</span>
-            </p>
-        </div>
-    </div>
-
-    <script>
-        const S_URL = 'https://dsfhfusjtteyjtlmeavj.supabase.co';
-        const S_KEY = 'sb_publishable_e10o67AI9hzJKY8COhs97g_5PWdvbKk';
-        const client = supabase.createClient(S_URL, S_KEY);
-
-        async function load() {
-            const { data: parts } = await client.from('khatmas').select('*').order('id');
-            document.getElementById('grid').innerHTML = (parts || []).map(p => `
-                <button onclick="markAsDone(${p.id}, '${p.status}', ${p.part_number})" class="part-btn ${p.status === 'completed' ? 'completed' : 'available'}">
-                    <span class="text-[9px] opacity-50 mb-1">جزء</span>${p.part_number}
-                </button>
-            `).join('');
-        }
-
-        async function markAsDone(id, status, num) {
-            if(status === 'completed') return;
-            if(confirm(`هل أتممت قراءة الجزء رقم ${num}؟`)) {
-                await client.from('khatmas').update({ status: 'completed' }).eq('id', id);
-                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
-                
-                const { data: all } = await client.from('khatmas').select('status');
-                if (all.every(p => p.status === 'completed')) {
-                    alert('هنيئاً لكم! تمت الختمة. سيتم تصفير الأجزاء لختمة جديدة.');
-                    await client.from('khatmas').update({ status: 'available' }).neq('status', 'available');
-                }
-                load();
-            }
-        }
-
-        // دالة المشاركة الاحترافية التي تجبر واتساب على سحب الصورة
-        function shareOnWhatsApp() {
-            const baseUrl = window.location.origin + window.location.pathname;
-            // إضافة رمز عشوائي للرابط عند كل مشاركة لإجبار واتساب على التحديث
-            const freshUrl = `${baseUrl}?upd=${Math.floor(Math.random() * 9999)}`;
-            const message = `شاركونا الأجر في ختمة القرآن الكريم صدقة جارية عن أرواح المرحومين مخيبر ورهف القصير. رابط الختمة:\n${freshUrl}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
-        }
-
-        load();
-    </script>
-</body>
-</html>
+        <button onclick="shareOnWhatsApp()" class="w-full bg-[#25D366] text-
